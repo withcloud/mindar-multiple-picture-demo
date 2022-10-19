@@ -4,21 +4,15 @@
     <link href="./index.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script> -->
+    <script type="module" src="mindar-image-aframe.prod.js"></script>
   </head>
   
   <body class="bg-blue-300">
-    
-  <div
-      id="videoShow"
-      class="hidden absolute m-0  left-[50%] -translate-x-1/2 w-full"
-    >
-       <div id="video"> </div>
-    </div> 
-
+  
     <!-- 模型加載 -->
     <a-scene
-      mindar-image="imageTargetSrc: targets.mind; maxTrack: 4; filterMinCF:0.0001; filterBeta: 0.001;uiScanning:no"
+      mindar-image="imageTargetSrc: targets.mind; maxTrack: 4; filterMinCF:0.1; filterBeta: 0.1.;uiScanning:no;missTolerance: 1"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -51,7 +45,7 @@
      </a-entity>
      
       <!-- 使用相機 -->
-      <a-camera position="0 0 0" look-controls="enabled: false"> </a-camera>
+      <a-camera  position="0 0 0" look-controls="enabled: false"> </a-camera>
     </a-scene>
 
   </body>
