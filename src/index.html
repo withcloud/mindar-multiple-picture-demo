@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./index.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image.prod.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+  </head>
+  
+  <body class="bg-blue-300">
+    
+  <div
+      id="videoShow"
+      class="hidden absolute m-0  left-[50%] -translate-x-1/2 w-full"
+    >
+       <div id="video"> </div>
+    </div> 
+
+    <!-- 模型加載 -->
+    <a-scene
+      mindar-image="imageTargetSrc: targets.mind; maxTrack: 4; filterMinCF:0.0001; filterBeta: 0.001;uiScanning:no"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+
+      <!-- 掃描marker -->
+      <a-assets>
+        <img id="img1" src="./images/1.png" />
+        <img id="img2" src="./images/2.png" />
+        <img id="img3" src="./images/3.png" />
+        <img id="img4" src="./images/4.png" />
+      </a-assets>
+
+      <!-- 顯示內容 -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane src="#img1" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 1">
+        <a-plane src="#img2" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+      </a-entity>
+
+      <a-entity mindar-image-target="targetIndex: 2">
+         <a-plane src="#img3" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+      </a-entity>
+     
+      <a-entity mindar-image-target="targetIndex: 3">
+        <a-plane src="#img4" position="0 0 0" height="1" width="1" rotation="0 0 0"></a-plane>
+     </a-entity>
+     
+      <!-- 使用相機 -->
+      <a-camera position="0 0 0" look-controls="enabled: false"> </a-camera>
+    </a-scene>
+
+  </body>
+</html>
